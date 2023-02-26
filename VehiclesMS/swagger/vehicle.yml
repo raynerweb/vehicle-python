@@ -3,7 +3,7 @@ info:
   title: vehicle.py API
   version: 1.0.0
 servers:
-  - url: http://localhost:5000
+  - url: http://localhost:8083
 paths:
   /vehicles:
     get:
@@ -94,17 +94,11 @@ components:
           type: integer
           format: int64
           description: The unique identifier for the vehicle
-        customer_owner_id:
-          type: integer
-          format: int64
-          description: The ID of the customer that owns the vehicle
         telemetry_profile_id:
-          type: integer
-          format: int64
+          type: string
           description: The ID of the telemetry profile for the vehicle
-        current_driver_id:
-          type: integer
-          format: int64
+        driver_id:
+          type: string
           description: The ID of the current driver.py of the vehicle
         number_plate:
           type: string

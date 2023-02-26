@@ -1,3 +1,5 @@
-flask db init
-flask db migrate -m "chupeta"
-flask db upgrade
+##flask db init
+
+##flask db migrate -m "Create Tables"
+
+##flask db upgrade
