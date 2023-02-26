@@ -21,4 +21,5 @@ coverage.xml
 .pytest_cache/
 /docs/build/_build/
 /pysqlite_test_schema.db
+migrations/
 *.sqlite3
