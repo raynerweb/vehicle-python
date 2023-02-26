@@ -105,7 +105,7 @@ components:
         current_driver_id:
           type: integer
           format: int64
-          description: The ID of the current driver of the vehicle
+          description: The ID of the current driver.py of the vehicle
         number_plate:
           type: string
           description: The license plate number of the vehicle
