@@ -1,17 +1,15 @@
-from pprint import pprint
+import json
 
+import requests
 from flask import abort, Blueprint
-from flask_apispec import marshal_with, use_kwargs, FlaskApiSpec
+from flask_apispec import marshal_with, use_kwargs
 from flask_apispec.annotations import doc
 from marshmallow import fields
 
+from extensions import db
 from models.vehicle import Vehicle
-from schemas.vehicle import VehicleSchema
 from schemas.driver import DriverSchema
-
-from app import db
-import json
-import requests
+from schemas.vehicle import VehicleSchema
 
 vehicles_bp = Blueprint("vehicles", __name__, url_prefix="/vehicles")
 

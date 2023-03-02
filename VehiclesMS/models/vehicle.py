@@ -1,6 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-from app import db
+from extensions import db
 
 
 class Vehicle(db.Model):
