@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: vehicle.py API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8083
+paths:
+  /vehicles:
+    get:
+      summary: Get all vehicles
+      responses:
+        '200':
+          description: A list of vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/vehicle.py'
+    post:
+      summary: Create a new vehicle
+      requestBody:
+        description: The vehicle to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vehicle.py'
+      responses:
+        '201':
+          description: The newly created vehicle
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicle.py'
+  /vehicles/{vehicle_id}:
+    get:
+      summary: Get a vehicle by ID
+      parameters:
+        - in: path
+          name: vehicle_id
+          schema:
+            type: integer
+          required: true
+          description: The ID of the vehicle to retrieve
+      responses:
+        '200':
+          description: The requested vehicle
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicle.py'
+    put:
+      summary: Update a vehicle by ID
+      parameters:
+        - in: path
+          name: vehicle_id
+          schema:
+            type: integer
+          required: true
+          description: The ID of the vehicle to update
+      requestBody:
+        description: The updated vehicle
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vehicle.py'
+      responses:
+        '200':
+          description: The updated vehicle
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicle.py'
+    delete:
+      summary: Delete a vehicle by ID
+      parameters:
+        - in: path
+          name: vehicle_id
+          schema:
+            type: integer
+          required: true
+          description: The ID of the vehicle to delete
+      responses:
+        '204':
+          description: vehicle.py deleted successfully
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        vehicle_id:
+          type: integer
+          format: int64
+          description: The unique identifier for the vehicle
+        telemetry_profile_id:
+          type: string
+          description: The ID of the telemetry profile for the vehicle
+        driver_id:
+          type: string
+          description: The ID of the current driver.py of the vehicle
+        number_plate:
+          type: string
+          description: The license plate number of the vehicle
+        vin:
+          type: string
+          description: The VIN (vehicle identification number) of the vehicle
+        color:
+          type: string
+          description: The color of the vehicle
